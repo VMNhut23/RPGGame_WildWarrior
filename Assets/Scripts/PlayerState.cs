@@ -8,6 +8,7 @@ public class PlayerState
     protected Player player;
 
     protected float xInput;
+    protected float yInput;
     private string animBoolName;
 
     protected float stateTimer;
@@ -26,6 +27,7 @@ public class PlayerState
         stateTimer -= Time.deltaTime;
 
         xInput = Input.GetAxisRaw("Horizontal");
+        yInput = Input.GetAxisRaw("Vertical");
         player.animator.SetFloat("yVelocity", player.rb.velocity.y);
 	}
     public virtual void Exit()
