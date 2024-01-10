@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    [Header("Attack details")]
+    public Vector2[] attackMovement;
+    public bool isBusy { get; private set; }
     [Header("Move info")]
     public float moveSpeed = 10f;
     public float jumpForce;
@@ -38,6 +41,7 @@ public class Player : MonoBehaviour
     public PlayerWallJumpState wallJump { get; private set; }
     public PlayerAirState airState { get; private set; }
     public PlayerDashState dashState { get; private set; }
+    public PlayerPrimaryAttack primaryAttack { get; private set; }
 	#endregion
 	private void Awake()
 	{
@@ -50,6 +54,7 @@ public class Player : MonoBehaviour
         dashState = new PlayerDashState(this, stateMachine, "Dash");
         wallSlide = new PlayerWallSlideState(this, stateMachine, "WallSlide");
         wallJump = new PlayerWallJumpState(this, stateMachine, "Jump");
+        primaryAttack = new PlayerPrimaryAttack(this, stateMachine, "Attack");
 	}
 	void Start()
     {
@@ -62,6 +67,13 @@ public class Player : MonoBehaviour
         stateMachine.currentState.Update();
         CheckForDashInput();
 	}
+    public IEnumerator BusyFor(float _seconds)
+	{
+        isBusy = true;
+        yield return new WaitForSeconds(_seconds);
+        isBusy = false;
+	}
+    public void AnimationTrigger() => stateMachine.currentState.AnimationFinishTrigger();
     private void CheckForDashInput()
 	{
         if (IsWallDetected())
@@ -81,19 +93,25 @@ public class Player : MonoBehaviour
 		}
             
     }
+	#region Velocity
+	public void ZeroVelocity() => rb.velocity = new Vector2(0, 0);
     public void SetVelocity(float xVelocity, float yVelocity)
 	{
         rb.velocity = new Vector2(xVelocity, yVelocity);
         FlipController(xVelocity);
     }
-    public bool IsGroundedDetected() => Physics2D.Raycast(groundCheck.position, Vector2.down, groundCheckDistance, whatIsGround);
+	#endregion
+	#region Collision
+	public bool IsGroundedDetected() => Physics2D.Raycast(groundCheck.position, Vector2.down, groundCheckDistance, whatIsGround);
     public bool IsWallDetected() => Physics2D.Raycast(wallCheck.position, Vector2.right * facingDir, wallCheckDistance, whatIsGround);
     private void OnDrawGizmos()
 	{
         Gizmos.DrawLine(groundCheck.position, new Vector3(groundCheck.position.x, groundCheck.position.y - groundCheckDistance));
         Gizmos.DrawLine(wallCheck.position, new Vector3(wallCheck.position.x + wallCheckDistance, wallCheck.position.y));
 	}
-    public void Flip()
+	#endregion
+	#region Flip
+	public void Flip()
 	{
         facingDir = facingDir * -1;
         facingRight = !facingRight;
@@ -110,4 +128,5 @@ public class Player : MonoBehaviour
             Flip();
 		}
 	}
+	#endregion
 }

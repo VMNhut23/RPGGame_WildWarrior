@@ -394,6 +394,7 @@ GameObject:
   - component: {fileID: 1547086325}
   - component: {fileID: 1547086327}
   - component: {fileID: 1547086328}
+  - component: {fileID: 1547086329}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -413,6 +414,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff67e8d46ff635b429ed2d344a95ab95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackMovement:
+  - {x: 2, y: 3}
+  - {x: 2, y: 2}
+  - {x: 3, y: 1}
   moveSpeed: 5
   jumpForce: 15
   dashCooldown: 3
@@ -551,6 +556,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!114 &1547086329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1547086322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09b3808f0ed0d95468b585f6a2e24db5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1633331222
 GameObject:
   m_ObjectHideFlags: 0
