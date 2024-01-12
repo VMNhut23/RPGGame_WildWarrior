@@ -9,4 +9,13 @@ public class SkeletonAnimationTriggers : MonoBehaviour
 	{
 		enemy.AnimationFinishTrigger();
 	}
+	private void AttackTrigger()
+	{
+		Collider2D[] collider2D = Physics2D.OverlapCircleAll(enemy.attackCheck.position, enemy.attackCheckRadius);
+		foreach (var hit in collider2D)
+		{
+			if (hit.GetComponent<Player>() != null)
+				hit.GetComponent<Player>().Damage();
+		}
+	}
 }

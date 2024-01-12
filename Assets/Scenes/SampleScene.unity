@@ -123,6 +123,37 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &105535180
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 105535181}
+  m_Layer: 7
+  m_Name: AttackCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &105535181
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 105535180}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.97, y: -0.25, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1547086324}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &260691046
 GameObject:
   m_ObjectHideFlags: 0
@@ -349,6 +380,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &829069070
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 829069071}
+  m_Layer: 8
+  m_Name: AttackCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &829069071
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 829069070}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.16, y: -0.11, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1220835847}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &895645925
 GameObject:
   m_ObjectHideFlags: 0
@@ -506,7 +568,8 @@ GameObject:
   - component: {fileID: 1220835849}
   - component: {fileID: 1220835848}
   - component: {fileID: 1220835850}
-  m_Layer: 0
+  - component: {fileID: 1220835851}
+  m_Layer: 8
   m_Name: Enemy_Skeleton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -545,6 +608,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f60faadc71b30f4aace86f262e21453, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackCheck: {fileID: 829069071}
+  attackCheckRadius: 0.8
   groundCheck: {fileID: 1750934874}
   groundCheckDistance: 0.2
   wallCheck: {fileID: 2056107157}
@@ -552,12 +617,14 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 64
+  knockbackDirection: {x: 7, y: 12}
+  knockbackDuration: 0.07
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 128
   moveSpeed: 1.5
   idleTimer: 2
-  battleTime: 7
+  battleTime: 1
   attackDistance: 1
   attackCooldown: 0.4
   lastTimeAttacked: 0
@@ -627,6 +694,7 @@ Transform:
   m_Children:
   - {fileID: 1750934874}
   - {fileID: 2056107157}
+  - {fileID: 829069071}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -671,7 +739,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 3.5
+  m_GravityScale: 12
   m_Material: {fileID: 0}
   m_Interpolate: 1
   m_SleepingMode: 1
@@ -689,6 +757,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e98d92509635ed442b1e551ea4b42aa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1220835851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1220835843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 555b551db85ba10429a97bc856f80084, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashDuration: 0.15
+  hitMat: {fileID: 2100000, guid: 77f220fe8de3d2746a68c420b1d82b09, type: 2}
 --- !u!1 &1294080783
 GameObject:
   m_ObjectHideFlags: 0
@@ -815,6 +897,7 @@ GameObject:
   - component: {fileID: 1547086327}
   - component: {fileID: 1547086328}
   - component: {fileID: 1547086329}
+  - component: {fileID: 1547086330}
   m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
@@ -834,6 +917,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff67e8d46ff635b429ed2d344a95ab95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackCheck: {fileID: 105535181}
+  attackCheckRadius: 0.8
   groundCheck: {fileID: 438819726}
   groundCheckDistance: 0.2
   wallCheck: {fileID: 895645926}
@@ -841,6 +926,8 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 64
+  knockbackDirection: {x: 0, y: 0}
+  knockbackDuration: 0
   attackMovement:
   - {x: 2, y: 3}
   - {x: 2, y: 2}
@@ -864,6 +951,7 @@ Transform:
   m_Children:
   - {fileID: 438819726}
   - {fileID: 895645926}
+  - {fileID: 105535181}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -988,6 +1076,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09b3808f0ed0d95468b585f6a2e24db5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1547086330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1547086322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 555b551db85ba10429a97bc856f80084, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashDuration: 0.15
+  hitMat: {fileID: 2100000, guid: 77f220fe8de3d2746a68c420b1d82b09, type: 2}
 --- !u!1 &1633331222
 GameObject:
   m_ObjectHideFlags: 0
@@ -1108,7 +1210,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1750934874}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1250,7 +1352,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2056107157}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: WallCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
