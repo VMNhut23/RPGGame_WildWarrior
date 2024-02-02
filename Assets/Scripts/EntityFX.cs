@@ -12,7 +12,7 @@ public class EntityFX : MonoBehaviour
     private Material originMat;
 	private void Start()
 	{
-		sr = GetComponent<SpriteRenderer>();
+		sr = GetComponentInChildren<SpriteRenderer>();
 		originMat = sr.material;
 	}
 	IEnumerator FlashFX()

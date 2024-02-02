@@ -31,8 +31,8 @@ public class Entity : MonoBehaviour
 	}
 	protected virtual void Start()
 	{
-		entityFX = GetComponent<EntityFX>();
-		animator = GetComponent<Animator>();
+		entityFX = GetComponentInChildren<EntityFX>();
+		animator = GetComponentInChildren<Animator>();
 		rb = GetComponent<Rigidbody2D>();
 	}
 	protected virtual void Update()
