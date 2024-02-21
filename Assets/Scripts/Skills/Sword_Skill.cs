@@ -15,15 +15,24 @@ public class Sword_Skill : Skill
 	[Header("Bounce info")]
 	[SerializeField] private int bounceAmount;
 	[SerializeField] private float bounceGravity;
+	[SerializeField] private float bounceSpeed;
 
 	[Header("Perice info")]
 	[SerializeField] private int periceAmount;
 	[SerializeField] private float periceGravity;
 
+	[Header("Spin info")]
+	[SerializeField] private float hitCooldown = .35f;
+	[SerializeField] private float maxTravelDistance = 7;
+	[SerializeField] private float spinDuration = 2;
+	[SerializeField] private float spinGravity = 1;
+
 	[Header("Skill info")]
 	[SerializeField] private GameObject swordPrefabs;
 	[SerializeField] private Vector2 launchForce;
 	[SerializeField] private float swordGravity;
+	[SerializeField] private float freezeTimerDuration;
+	[SerializeField] private float returnSpeed;
 
 	private Vector2 finalDir;
 
@@ -48,6 +57,8 @@ public class Sword_Skill : Skill
 			swordGravity = bounceGravity;
 		else if (swordType == SwordType.Pierce)
 			swordGravity = periceGravity;
+		else if (swordType == SwordType.Spin)
+			swordGravity = spinGravity;
 	}
 
 	protected override void Update()
@@ -70,11 +81,13 @@ public class Sword_Skill : Skill
 		Sword_Skill_Controller newSwordScripts = newSword.GetComponent<Sword_Skill_Controller>();
 
 		if (swordType == SwordType.Bounce)
-			newSwordScripts.SetupBounce(true, bounceAmount);
+			newSwordScripts.SetupBounce(true, bounceAmount, bounceSpeed);
 		else if (swordType == SwordType.Pierce)
 			newSwordScripts.SetupPerice(periceAmount);
+		else if (swordType == SwordType.Spin)
+			newSwordScripts.SetupSpin(true, maxTravelDistance, spinDuration, hitCooldown);
 
-		newSwordScripts.SetUpSword(launchForce, swordGravity, player);
+		newSwordScripts.SetUpSword(launchForce, swordGravity, player, freezeTimerDuration, returnSpeed);
 		player.AssignNewSword(newSword);
 		DotsActive(false);
 	}
