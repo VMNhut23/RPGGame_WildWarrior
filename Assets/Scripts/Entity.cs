@@ -24,6 +24,7 @@ public class Entity : MonoBehaviour
 	public Animator animator { get; private set; }
 	public Rigidbody2D rb { get; private set; }
 	public EntityFX entityFX { get; private set; }
+	public SpriteRenderer sr { get; private set; }
 	#endregion
 	protected virtual void Awake()
 	{
@@ -31,9 +32,10 @@ public class Entity : MonoBehaviour
 	}
 	protected virtual void Start()
 	{
-		entityFX = GetComponentInChildren<EntityFX>();
+		sr = GetComponentInChildren<SpriteRenderer>();
 		animator = GetComponentInChildren<Animator>();
 		rb = GetComponent<Rigidbody2D>();
+		entityFX = GetComponent<EntityFX>();
 	}
 	protected virtual void Update()
 	{
@@ -96,4 +98,11 @@ public class Entity : MonoBehaviour
 		}
 	}
 	#endregion
+	public void MakeTransprent(bool _transprent)
+	{
+		if (_transprent)
+			sr.color = Color.clear;
+		else
+			sr.color = Color.white;
+	}
 }
