@@ -87,7 +87,7 @@ public class Sword_Skill : Skill
 		else if (swordType == SwordType.Spin)
 			newSwordScripts.SetupSpin(true, maxTravelDistance, spinDuration, hitCooldown);
 
-		newSwordScripts.SetUpSword(launchForce, swordGravity, player, freezeTimerDuration, returnSpeed);
+		newSwordScripts.SetUpSword(finalDir, swordGravity, player, freezeTimerDuration, returnSpeed);
 		player.AssignNewSword(newSword);
 		DotsActive(false);
 	}
