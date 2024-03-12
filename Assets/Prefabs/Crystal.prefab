@@ -120,6 +120,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   growSpeed: 5
+  whatIsLayer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!58 &7215374277632642755
 CircleCollider2D:
   m_ObjectHideFlags: 0

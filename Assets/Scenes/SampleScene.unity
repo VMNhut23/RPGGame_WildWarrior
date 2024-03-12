@@ -3538,6 +3538,12 @@ MonoBehaviour:
   clonePrefabs: {fileID: 2342968903970996175, guid: c9c0b9d0c41b6b047b8bc6ff44db3b4b, type: 3}
   cloneDuration: 1.5
   canAttack: 1
+  createCloneOnDashStart: 0
+  createCloneOnDashOver: 0
+  canCreateCloneOnCounterAttack: 0
+  canDuplicateClone: 1
+  changeToDuplicate: 0
+  crystalInsteadOfClone: 0
 --- !u!114 &1862796144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3605,6 +3611,7 @@ MonoBehaviour:
   cooldown: 0
   crystalDuration: 1.5
   crystalPrefab: {fileID: 3426044630738352276, guid: dabde5109e852fd499b6665e62d19d8f, type: 3}
+  cloneInsteadOfCrystal: 1
   canExplode: 1
   canMoveToEnemy: 1
   moveSpeed: 5
@@ -3763,10 +3770,6 @@ PrefabInstance:
     - target: {fileID: 3426044630738352279, guid: dabde5109e852fd499b6665e62d19d8f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7215374277632642755, guid: dabde5109e852fd499b6665e62d19d8f, type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dabde5109e852fd499b6665e62d19d8f, type: 3}
