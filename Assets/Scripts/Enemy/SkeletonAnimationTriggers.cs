@@ -15,7 +15,11 @@ public class SkeletonAnimationTriggers : MonoBehaviour
 		foreach (var hit in collider2D)
 		{
 			if (hit.GetComponent<Player>() != null)
-				hit.GetComponent<Player>().Damage();
+			{
+				PlayerStats _target = hit.GetComponent<PlayerStats>();
+
+				enemy.stats.DoDamage(_target);
+			}
 		}
 	}
 	private void OpenCounterWindow() => enemy.OpenCounterAttackWindow();
