@@ -16,3 +16,22 @@ MonoBehaviour:
   itemName: Wooden sword
   icon: {fileID: 1025091068, guid: a9ca9a41598dd2e44b125928045c518f, type: 3}
   equipmentType: 0
+  strength: 0
+  agility: 0
+  intelligence: 0
+  vitality: 0
+  damage: 0
+  critChance: 0
+  critPower: 0
+  health: 0
+  armor: 0
+  evasion: 0
+  magicResistance: 0
+  fireDamage: 0
+  iceDamage: 0
+  lightingDamage: 0
+  craftingMaterials:
+  - itemData: {fileID: 11400000, guid: 176586c869d8c004b87e8b6bd23773f9, type: 2}
+    stackSize: 1
+  - itemData: {fileID: 11400000, guid: 9843b1ff827e421409bfa89bd56ca818, type: 2}
+    stackSize: 1
