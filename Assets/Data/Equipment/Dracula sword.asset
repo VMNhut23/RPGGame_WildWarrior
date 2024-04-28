@@ -10,29 +10,28 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 320b600dd3b65454aa882e077224314d, type: 3}
-  m_Name: IceAndFire
+  m_Name: Dracula sword
   m_EditorClassIdentifier: 
   itemType: 1
-  itemName: IceAndFire
-  icon: {fileID: 1398721256, guid: a9ca9a41598dd2e44b125928045c518f, type: 3}
-  dropChange: 8
+  itemName: Dracula sword
+  icon: {fileID: -1944902997, guid: a9ca9a41598dd2e44b125928045c518f, type: 3}
+  dropChange: 10.4
   equipmentType: 0
   itemCooldown: 0
   itemEffects:
-  - {fileID: 11400000, guid: 828a5b37856512149a28993b08a41400, type: 2}
-  - {fileID: 11400000, guid: b400e5849ff914b4eace49015309c15e, type: 2}
+  - {fileID: 11400000, guid: 6d0067e8e0b42084bac706513bbd5abe, type: 2}
   strength: 0
   agility: 0
   intelligence: 0
   vitality: 0
-  damage: 10
-  critChance: 0
+  damage: 15
+  critChance: 15
   critPower: 0
-  health: 15
+  health: 0
   armor: 0
   evasion: 0
-  magicResistance: 0
-  fireDamage: 5
-  iceDamage: 7
+  magicResistance: 25
+  fireDamage: 0
+  iceDamage: 0
   lightingDamage: 0
   craftingMaterials: []

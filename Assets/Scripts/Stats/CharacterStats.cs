@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -70,7 +71,18 @@ public class CharacterStats : MonoBehaviour
 		if(isIgnited)
 			ApplyIgniteDamage();
 	}
+	public virtual void IncreaseStatBy(int _modifier, float _duration, Stat _statModify)
+	{
+		StartCoroutine(StatModCoroutine(_modifier, _duration, _statModify));
+	}
+	private IEnumerator StatModCoroutine(int _modifier, float _duration, Stat _statModify)
+	{
+		_statModify.AddModifier(_modifier);
 
+		yield return new WaitForSeconds(_duration);
+
+		_statModify.RemoveModifier(_modifier);
+	}
 
 	public virtual void DoDamage(CharacterStats _targetStats)
 	{
@@ -253,6 +265,16 @@ public class CharacterStats : MonoBehaviour
 		if (currentHealth < 0 && !isDead)
 			Die();
 
+	}
+	public virtual void IncreaseHealthBy(int _amount)
+	{
+		currentHealth += _amount;
+
+		if (currentHealth > GetMaxHealthValue())
+			currentHealth = GetMaxHealthValue();
+
+		if (onHealthChanged != null)
+			onHealthChanged();
 	}
 	protected virtual void DecreaseHealthBy(int _damage)
 	{
