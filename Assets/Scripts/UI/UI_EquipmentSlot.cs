@@ -12,6 +12,9 @@ public class UI_EquipmentSlot : UI_ItemSlot
 	}
 	public override void OnPointerDown(PointerEventData eventData)
 	{
+		if (item == null || item.itemData == null)
+			return;
+
 		Inventory.instance.UnequipItem(item.itemData as ItemData_Equipment);
 		Inventory.instance.AddItem(item.itemData as ItemData_Equipment);
 		CleanUpSlot();
