@@ -6,6 +6,8 @@ public class Inventory : MonoBehaviour
 {
     public static Inventory instance;
 
+	public List<ItemData> startingEquipment;
+
 	public List<InventoryItem> equipment;
 	public Dictionary<ItemData_Equipment, InventoryItem> equipmentDictionary;
 
@@ -54,6 +56,14 @@ public class Inventory : MonoBehaviour
 		stashItemSlot = stashSlotParent.GetComponentsInChildren<UI_ItemSlot>();
 		equipmentSlot = equipmentSlotParent.GetComponentsInChildren<UI_EquipmentSlot>();
 		statSlot = statSlotParent.GetComponentsInChildren<UI_StatSlot>();
+		AddStartingItems();
+	}
+	private void AddStartingItems()
+	{
+		for (int i = 0; i < startingEquipment.Count; i++)
+		{
+			AddItem(startingEquipment[i]);
+		}
 	}
 	public void EquipItem(ItemData _item)
 	{
@@ -130,7 +140,7 @@ public class Inventory : MonoBehaviour
 	}
 	public void AddItem(ItemData _item)
 	{
-		if (_item.itemType == ItemType.Equipment)
+		if (_item.itemType == ItemType.Equipment && CanAddItem())
 			AddToInventory(_item);
 		else if(_item.itemType == ItemType.Material)
 			AddToStash(_item);
@@ -190,6 +200,15 @@ public class Inventory : MonoBehaviour
 				stashValue.RemoveStack();
 		}
 		UpdateSlotUI();
+	}
+	public bool CanAddItem()
+	{
+		if(inventory.Count >= inventoryItemSlot.Length)
+		{
+			Debug.Log("No more space");
+			return false;
+		}
+		return true;
 	}
 	public bool CanCraft(ItemData_Equipment _itemToCraft, List<InventoryItem> _requiredMaterials)
 	{

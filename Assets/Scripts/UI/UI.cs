@@ -4,16 +4,32 @@ using UnityEngine;
 
 public class UI : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] private GameObject characterUI;
+    [SerializeField] private GameObject skillTreeUI;
+    [SerializeField] private GameObject craftUI;
+    [SerializeField] private GameObject optionUI;
+    public UI_ItemTooltip itemTooltip;
+    public UI_StatTooltip statTooltip;
     void Start()
     {
-        
-    }
+        SwitchTo(null);
 
-    // Update is called once per frame
+        itemTooltip.gameObject.SetActive(false);
+        statTooltip.gameObject.SetActive(false);
+    }
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.C))
+            SwitchWithKeyTo(characterUI);
+
+        if (Input.GetKeyDown(KeyCode.X))
+            SwitchWithKeyTo(skillTreeUI);
+
+        if (Input.GetKeyDown(KeyCode.V))
+            SwitchWithKeyTo(craftUI);
+
+        if (Input.GetKeyDown(KeyCode.B))
+            SwitchWithKeyTo(optionUI);
     }
     public void SwitchTo(GameObject _menu)
 	{
@@ -24,5 +40,14 @@ public class UI : MonoBehaviour
 
         if (_menu != null)
             _menu.SetActive(true);
+	}
+    public void SwitchWithKeyTo(GameObject _menu)
+	{
+        if(_menu != null && _menu.activeSelf)
+		{
+            _menu.SetActive(false);
+            return;
+		}
+        SwitchTo(_menu);
 	}
 }
