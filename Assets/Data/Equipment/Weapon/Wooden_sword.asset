@@ -10,18 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 320b600dd3b65454aa882e077224314d, type: 3}
-  m_Name: Stolen_sword
+  m_Name: Wooden_sword
   m_EditorClassIdentifier: 
   itemType: 1
-  itemName: Stolen_sword
-  icon: {fileID: 1526008332, guid: a9ca9a41598dd2e44b125928045c518f, type: 3}
-  dropChange: 68.3
+  itemName: Wooden sword
+  itemIcon: {fileID: 1025091068, guid: a9ca9a41598dd2e44b125928045c518f, type: 3}
+  dropChange: 62.8
   equipmentType: 0
+  itemCooldown: 0
+  itemEffects: []
   strength: 0
   agility: 0
   intelligence: 0
   vitality: 0
-  damage: 7
+  damage: 10
   critChance: 0
   critPower: 0
   health: 0
@@ -31,4 +33,6 @@ MonoBehaviour:
   fireDamage: 0
   iceDamage: 0
   lightingDamage: 0
-  craftingMaterials: []
+  craftingMaterials:
+  - itemData: {fileID: 11400000, guid: 9843b1ff827e421409bfa89bd56ca818, type: 2}
+    stackSize: 1

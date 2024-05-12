@@ -10,15 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 320b600dd3b65454aa882e077224314d, type: 3}
-  m_Name: Nice_armor
+  m_Name: Amulet of God
   m_EditorClassIdentifier: 
   itemType: 1
-  itemName: Nice_armor
-  icon: {fileID: -1581127718, guid: a9ca9a41598dd2e44b125928045c518f, type: 3}
-  dropChange: 66.6
-  equipmentType: 1
+  itemName: Amulet of God
+  itemIcon: {fileID: -245851270, guid: a9ca9a41598dd2e44b125928045c518f, type: 3}
+  dropChange: 0
+  equipmentType: 2
   itemCooldown: 0
-  itemEffects: []
+  itemEffects:
+  - {fileID: 11400000, guid: a9176bf5472cbfc4fb40f72fbfe41e4f, type: 2}
   strength: 0
   agility: 0
   intelligence: 0
@@ -26,11 +27,15 @@ MonoBehaviour:
   damage: 0
   critChance: 0
   critPower: 0
-  health: 0
-  armor: 20
+  health: 20
+  armor: 0
   evasion: 0
-  magicResistance: 0
+  magicResistance: 15
   fireDamage: 0
   iceDamage: 0
-  lightingDamage: 0
-  craftingMaterials: []
+  lightingDamage: 10
+  craftingMaterials:
+  - itemData: {fileID: 11400000, guid: 9843b1ff827e421409bfa89bd56ca818, type: 2}
+    stackSize: 15
+  - itemData: {fileID: 0}
+    stackSize: 15

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 1
   itemName: Armor flask
-  icon: {fileID: -165920498, guid: a9ca9a41598dd2e44b125928045c518f, type: 3}
+  itemIcon: {fileID: 1950254748, guid: a9ca9a41598dd2e44b125928045c518f, type: 3}
   dropChange: 0
   equipmentType: 3
   itemCooldown: 15
@@ -29,8 +29,8 @@ MonoBehaviour:
   critChance: 0
   critPower: 0
   health: 0
-  armor: 0
-  evasion: 0
+  armor: 20
+  evasion: 10
   magicResistance: 0
   fireDamage: 0
   iceDamage: 0

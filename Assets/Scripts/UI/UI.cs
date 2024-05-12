@@ -8,8 +8,10 @@ public class UI : MonoBehaviour
     [SerializeField] private GameObject skillTreeUI;
     [SerializeField] private GameObject craftUI;
     [SerializeField] private GameObject optionUI;
+
     public UI_ItemTooltip itemTooltip;
     public UI_StatTooltip statTooltip;
+    public UI_CraftWindow craftWindow;
     void Start()
     {
         SwitchTo(null);
