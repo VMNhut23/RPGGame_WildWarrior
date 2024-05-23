@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class UI_SkillTreeTooltip : MonoBehaviour
+public class UI_SkillTreeTooltip : UI_Tooltip
 {
     [SerializeField] private TextMeshProUGUI skillDescription;
 	[SerializeField] private TextMeshProUGUI skillName;
@@ -11,6 +11,8 @@ public class UI_SkillTreeTooltip : MonoBehaviour
 	{
 		skillName.text = _skillName;
 		skillDescription.text = _skillDescription;
+
+		AdjustPosition();
 
 		gameObject.SetActive(true);
 	}
