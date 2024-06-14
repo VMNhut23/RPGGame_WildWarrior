@@ -11,6 +11,8 @@ public class Skill : MonoBehaviour
 	protected virtual void Start()
 	{
 		player = PlayerManager.instance.player;
+
+		CheckUnlock();
 	}
     protected virtual void Update()
 	{
@@ -27,6 +29,10 @@ public class Skill : MonoBehaviour
 		return false;
 	}
 	public virtual void UseSkill()
+	{
+
+	}
+	protected virtual void CheckUnlock()
 	{
 
 	}

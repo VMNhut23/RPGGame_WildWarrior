@@ -71,6 +71,17 @@ public class Sword_Skill : Skill
 		timeStopUnlockButton.GetComponent<Button>().onClick.AddListener(UnlockTimeStop);
 		vulnerableUnlockButton.GetComponent<Button>().onClick.AddListener(UnlockVulnerable);
 	}
+	protected override void CheckUnlock()
+	{
+		base.CheckUnlock();
+
+		UnlockSword();
+		UnlockBounceSword();
+		UnlockPierceSword();
+		UnlockSpinSword();
+		UnlockTimeStop();
+		UnlockVulnerable();
+	}
 
 	private void SetupGravity()
 	{
