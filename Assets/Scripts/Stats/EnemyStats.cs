@@ -68,5 +68,7 @@ public class EnemyStats : CharacterStats
 
 		PlayerManager.instance.currency += soulsDropAmount.GetValue();
 		dropSystem.GenerateDrop();
+
+		Destroy(gameObject, 5f);
 	}
 }

@@ -58,6 +58,14 @@ public class UI : MonoBehaviour
 
         if (_menu != null)
             _menu.SetActive(true);
+
+        if(GameManager.instance != null)
+		{
+            if (_menu == inGameUI)
+                GameManager.instance.PauseGame(false);
+            else
+                GameManager.instance.PauseGame(true);
+		}
 	}
     public void SwitchWithKeyTo(GameObject _menu)
 	{
