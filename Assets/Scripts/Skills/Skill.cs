@@ -26,6 +26,7 @@ public class Skill : MonoBehaviour
 			cooldownTimer = cooldown;
 			return true;
 		}
+		player.entityFX.CreatePopupText("Cooldown");
 		return false;
 	}
 	public virtual void UseSkill()

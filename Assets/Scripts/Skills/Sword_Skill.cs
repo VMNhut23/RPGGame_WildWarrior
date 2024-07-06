@@ -73,8 +73,6 @@ public class Sword_Skill : Skill
 	}
 	protected override void CheckUnlock()
 	{
-		base.CheckUnlock();
-
 		UnlockSword();
 		UnlockBounceSword();
 		UnlockPierceSword();

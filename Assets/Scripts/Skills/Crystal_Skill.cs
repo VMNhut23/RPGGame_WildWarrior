@@ -47,8 +47,6 @@ public class Crystal_Skill : Skill
 	}
 	protected override void CheckUnlock()
 	{
-		base.CheckUnlock();
-
 		UnlockCrystal();
 		UnlockCrytalMirage();
 		UnlockMovingCrystal();

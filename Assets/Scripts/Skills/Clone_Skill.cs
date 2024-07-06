@@ -94,8 +94,6 @@ public class Clone_Skill : Skill
 	}
 	protected override void CheckUnlock()
 	{
-		base.CheckUnlock();
-
 		UnlockCloneAttack();
 		UnlockAggresiveClone();
 		UnlockCrystalInstead();

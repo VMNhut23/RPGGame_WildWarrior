@@ -14,6 +14,10 @@ public class PlayerCatchSwordState : PlayerState
 		base.Enter();
 
 		sword = player.sword.transform;
+
+		player.entityFX.PlayDustFX();
+		player.entityFX.ScreenShake(player.entityFX.shakeSwordImpact);
+
 		if (player.transform.position.x > sword.position.x && player.facingDir == 1)
 			player.Flip();
 		else if (player.transform.position.x < sword.position.x && player.facingDir == -1)

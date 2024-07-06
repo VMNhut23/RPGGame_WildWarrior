@@ -21,7 +21,6 @@ public class DashSkill : Skill
 	public override void UseSkill()
 	{
 		base.UseSkill();
-
 	}
 	protected override void Start()
 	{
@@ -33,8 +32,6 @@ public class DashSkill : Skill
 	}
 	protected override void CheckUnlock()
 	{
-		base.CheckUnlock();
-
 		UnlockCloneOnArrival();
 		UnlockCloneOnDash();
 		UnlockDash();

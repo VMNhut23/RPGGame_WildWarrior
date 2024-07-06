@@ -22,8 +22,6 @@ public class Dodge_Skill : Skill
 	}
 	protected override void CheckUnlock()
 	{
-		base.CheckUnlock();
-
 		UnlockDodge();
 		UnloccMirageDodge();
 	}

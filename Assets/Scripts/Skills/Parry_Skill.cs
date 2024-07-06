@@ -39,8 +39,6 @@ public class Parry_Skill : Skill
 	}
 	protected override void CheckUnlock()
 	{
-		base.CheckUnlock();
-
 		UnlockParry();
 		UnlockParryRestore();
 		UnlockParryWithMirage();

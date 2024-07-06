@@ -114,6 +114,8 @@ public class CharacterStats : MonoBehaviour
 
 	public virtual void DoDamage(CharacterStats _targetStats)
 	{
+		bool criticalStrike = false;
+
 		if (TargetCanAvoidAttack(_targetStats))
 			return;
 
@@ -124,7 +126,10 @@ public class CharacterStats : MonoBehaviour
 		if (CanCrit())
 		{
 			totalDamage = CalculateCriticalDamage(totalDamage);
+			criticalStrike = true;
 		}
+
+		fx.CreateHitFX(_targetStats.transform, criticalStrike);
 
 		totalDamage = CheckTargerArmour(_targetStats, totalDamage);
 		_targetStats.TakeDamage(totalDamage);
@@ -315,6 +320,9 @@ public class CharacterStats : MonoBehaviour
 			_damage = Mathf.RoundToInt(_damage * 1.1f);
 
 		currentHealth -= _damage;
+
+		if (_damage > 0)
+			fx.CreatePopupText(_damage.ToString());
 
 		if (onHealthChanged != null)
 			onHealthChanged();

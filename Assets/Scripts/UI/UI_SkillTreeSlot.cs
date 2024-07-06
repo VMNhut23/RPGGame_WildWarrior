@@ -79,7 +79,6 @@ public class UI_SkillTreeSlot : MonoBehaviour, IPointerEnterHandler, IPointerExi
 	}
 	public void LoadData(GameData _data)
 	{
-		Debug.Log("load skill tree");
 		if (_data.skillTree.TryGetValue(skillName, out bool value))
 		{
 			unlocked = value;
@@ -87,14 +86,13 @@ public class UI_SkillTreeSlot : MonoBehaviour, IPointerEnterHandler, IPointerExi
 	}
 	public void SaveData(ref GameData _data)
 	{
+
 		if (_data.skillTree.TryGetValue(skillName, out bool value))
 		{
 			_data.skillTree.Remove(skillName);
 			_data.skillTree.Add(skillName, unlocked);
 		}
 		else
-		{
 			_data.skillTree.Add(skillName, unlocked);
-		}
 	}
 }
