@@ -24,7 +24,6 @@ public class Entity : MonoBehaviour
 	#region Components
 	public Animator animator { get; private set; }
 	public Rigidbody2D rb { get; private set; }
-	public EntityFX entityFX { get; private set; }
 	public SpriteRenderer sr { get; private set; }
 	public CharacterStats stats { get; private set; }
 	public CapsuleCollider2D cd { get; private set; }
@@ -39,7 +38,6 @@ public class Entity : MonoBehaviour
 		sr = GetComponentInChildren<SpriteRenderer>();
 		animator = GetComponentInChildren<Animator>();
 		rb = GetComponent<Rigidbody2D>();
-		entityFX = GetComponent<EntityFX>();
 		stats = GetComponent<CharacterStats>();
 		cd = GetComponent<CapsuleCollider2D>();
 	}
@@ -98,7 +96,7 @@ public class Entity : MonoBehaviour
 	protected virtual void OnDrawGizmos()
 	{
 		Gizmos.DrawLine(groundCheck.position, new Vector3(groundCheck.position.x, groundCheck.position.y - groundCheckDistance));
-		Gizmos.DrawLine(wallCheck.position, new Vector3(wallCheck.position.x + wallCheckDistance, wallCheck.position.y));
+		Gizmos.DrawLine(wallCheck.position, new Vector3(wallCheck.position.x + wallCheckDistance * facingDir, wallCheck.position.y));
 		Gizmos.DrawWireSphere(attackCheck.position, attackCheckRadius);
 	}
 	#endregion
@@ -122,6 +120,12 @@ public class Entity : MonoBehaviour
 		{
 			Flip();
 		}
+	}
+	public virtual void SetupDefaultFacingDir(int _direction)
+	{
+		facingDir = _direction;
+		if (facingDir == -1)
+			facingRight = false;
 	}
 	#endregion
 	public void MakeTransprent(bool _transprent)

@@ -22,6 +22,7 @@ public class Player : Entity
     public float dashDir { get; private set; }
     public SkillManager skill { get; private set; }
     public GameObject sword;
+    public PlayerFX entityFX { get; private set; }
 
 	#region States
 	public PlayerStateMachine stateMachine { get; private set; }
@@ -63,6 +64,8 @@ public class Player : Entity
 	protected override void Start()
     {
         base.Start();
+
+        entityFX = GetComponent<PlayerFX>();
         skill = SkillManager.instance;
         stateMachine.Initialize(idleState);
 

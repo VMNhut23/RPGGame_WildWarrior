@@ -9,7 +9,6 @@ public class ItemDrop : MonoBehaviour
     private List<ItemData> dropList = new List<ItemData>();
 
     [SerializeField] private GameObject dropPrefabs;
-    [SerializeField] private ItemData item;
 
     public void GenerateDrop()
 	{
