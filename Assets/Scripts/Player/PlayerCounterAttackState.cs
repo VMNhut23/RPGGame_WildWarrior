@@ -30,25 +30,37 @@ public class PlayerCounterAttackState : PlayerState
 		Collider2D[] colliders = Physics2D.OverlapCircleAll(player.attackCheck.position, player.attackCheckRadius);
 		foreach (var hit in colliders)
 		{
+
+			if (hit.GetComponent<Arrow_Controller>() != null)
+			{
+				hit.GetComponent<Arrow_Controller>().FlipArrow();
+				SuccessCounterAttack();
+			}
+
 			if (hit.GetComponent<Enemy>() != null)
 			{
 				if (hit.GetComponent<Enemy>().CanBeStunned())
-				{
-					stateTimer = 10;
-					player.animator.SetBool("SuccessCounterAttack", true);
-
-					player.skill.parry.UseSkill();
-
-					if (canCreateClone)
 					{
-						canCreateClone = false;
-						player.skill.parry.MakeMirageOnParry(hit.transform);
+						SuccessCounterAttack();
+
+						player.skill.parry.UseSkill();
+
+						if (canCreateClone)
+						{
+							canCreateClone = false;
+							player.skill.parry.MakeMirageOnParry(hit.transform);
+						}
 					}
-				}
-			}	
+				}	
 		}
 
 		if (stateTimer < 0 || triggerCalled)
 			stateMachine.ChangeState(player.idleState);
+	}
+
+	private void SuccessCounterAttack()
+	{
+		stateTimer = 10;
+		player.animator.SetBool("SuccessCounterAttack", true);
 	}
 }
