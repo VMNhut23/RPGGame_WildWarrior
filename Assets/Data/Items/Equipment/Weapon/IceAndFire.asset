@@ -15,6 +15,7 @@ MonoBehaviour:
   itemType: 1
   itemName: IceAndFire
   itemIcon: {fileID: 1398721256, guid: a9ca9a41598dd2e44b125928045c518f, type: 3}
+  itemId: fc4ba0e33385af84283ea67973c12ece
   dropChange: 8
   equipmentType: 0
   itemCooldown: 0
@@ -32,7 +33,7 @@ MonoBehaviour:
   armor: 0
   evasion: 0
   magicResistance: 0
-  fireDamage: 5
+  fireDamage: 0
   iceDamage: 7
   lightingDamage: 0
   craftingMaterials:

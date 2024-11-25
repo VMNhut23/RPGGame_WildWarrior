@@ -25,10 +25,9 @@ public class Enemy_Shady : Enemy
 
 		idleState = new ShadyIdleState(this, stateMachine, "Idle", this);
 		moveState = new ShadyMoveState(this, stateMachine, "Move", this);
-		stunnedState = new ShadyStunnedState(this, stateMachine, "Stunned", this);
-
-		deadState = new ShadyDeadState(this, stateMachine, "Idle", this);
+		deadState = new ShadyDeadState(this, stateMachine, "Dead", this);
 		battleState = new ShadyBattleState(this, stateMachine, "MoveFast", this);
+		stunnedState = new ShadyStunnedState(this, stateMachine, "Stunned", this);
 	}
 	protected override void Start()
 	{

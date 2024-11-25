@@ -36,7 +36,7 @@ public class Explosive_Controller : MonoBehaviour
 		Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, explosionRadius);
 		foreach (var hit in colliders)
 		{
-			if (hit.GetComponent<Enemy>() != null)
+			if (hit.GetComponent<CharacterStats>() != null)
 			{
 				hit.GetComponent<Entity>().SetupKnockbackDir(transform);
 				myStats.DoDamage(hit.GetComponent<CharacterStats>());

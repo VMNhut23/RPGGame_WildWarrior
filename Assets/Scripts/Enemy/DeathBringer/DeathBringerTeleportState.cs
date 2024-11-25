@@ -13,14 +13,13 @@ public class DeathBringerTeleportState : EnemyState
 	{
 		base.Enter();
 
-		stateTimer = 1;
 	}
 	public override void Update()
 	{
 		base.Update();
 
-		if (stateTimer < 0)
-			stateMachine.ChangeState(enemy.idleState);
-
+		
+		if(triggerCalled)
+			stateMachine.ChangeState(enemy.battleState);
 	}
 }

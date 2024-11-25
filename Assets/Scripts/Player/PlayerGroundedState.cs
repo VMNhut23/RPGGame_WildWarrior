@@ -24,8 +24,8 @@ public class PlayerGroundedState : PlayerState
 
 		if (Input.GetKeyDown(KeyCode.R) && player.skill.blackhole.blackHoleUnlocked)
 		{
-			if (player.skill.blackhole.cooldown > 0)
-				player.entityFX.CreatePopupText("Cooldown");
+			if (player.skill.blackhole.cooldownTimer > 0)
+				return;
 			stateMachine.ChangeState(player.blackHole);
 		}
 

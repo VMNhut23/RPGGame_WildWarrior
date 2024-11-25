@@ -32,10 +32,14 @@ public class EntityFX : MonoBehaviour
 	[SerializeField] private GameObject hixFx;
 	[SerializeField] private GameObject criticalHitFx;
 
+	private GameObject myHealthBar;
+
 	protected virtual void Start()
 	{
 		sr = GetComponentInChildren<SpriteRenderer>();
 		originMat = sr.material;
+
+		myHealthBar = GetComponentInChildren<UI_HealthBar>().gameObject;
 	}
 	public void CreatePopupText(string _text)
 	{
@@ -137,5 +141,12 @@ public class EntityFX : MonoBehaviour
 			newHitFx.transform.localScale = new Vector3(GetComponent<Entity>().facingDir, 1, 1);
 
 		Destroy(newHitFx, .5f);
+	}
+	public void MakeTransprent(bool _transprent)
+	{
+		if (_transprent)
+			myHealthBar.SetActive(false);
+		else
+			myHealthBar.SetActive(true);
 	}
 }

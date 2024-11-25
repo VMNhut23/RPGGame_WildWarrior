@@ -12,6 +12,7 @@ public class DeathBringerIdleState : EnemyState
 	public override void Enter()
 	{
 		base.Enter();
+
 		stateTimer = enemy.idleTimer;
 	}
 
@@ -24,7 +25,7 @@ public class DeathBringerIdleState : EnemyState
 	{
 		base.Update();
 
-		if (Input.GetKeyDown(KeyCode.K))
+		if (Input.GetKeyDown(KeyCode.T))
 			stateMachine.ChangeState(enemy.teleportState);
 	}
 }

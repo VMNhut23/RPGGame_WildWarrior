@@ -27,6 +27,6 @@ public class DeathBringerAttackState : EnemyState
 		enemy.ZeroVelocity();
 
 		if (triggerCalled)
-			stateMachine.ChangeState(enemy.battleState);
+			stateMachine.ChangeState(enemy.teleportState);
 	}
 }

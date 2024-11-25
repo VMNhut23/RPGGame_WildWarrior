@@ -28,6 +28,7 @@ public class Parry_Skill : Skill
 			int restoreAmount = Mathf.RoundToInt(player.stats.GetMaxHealthValue() * restoreHealthPercentage);
 			player.stats.IncreaseHealthBy(restoreAmount);
 		}
+		AudioManager.instance.PlaySFX(0, player.transform);
 	}
 	protected override void Start()
 	{
