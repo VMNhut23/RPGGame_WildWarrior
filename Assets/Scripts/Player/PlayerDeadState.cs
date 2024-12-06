@@ -28,6 +28,7 @@ public class PlayerDeadState : PlayerState
 	{
 		base.Update();
 
-		player.ZeroVelocity();	
+		player.ZeroVelocity();
+		AudioManager.instance.StopBGM(0);
 	}
 }

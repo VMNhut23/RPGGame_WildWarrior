@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Entity : MonoBehaviour
@@ -31,7 +30,7 @@ public class Entity : MonoBehaviour
 	public System.Action onFlipped;
 	protected virtual void Awake()
 	{
-		
+
 	}
 	protected virtual void Start()
 	{
@@ -43,7 +42,7 @@ public class Entity : MonoBehaviour
 	}
 	protected virtual void Update()
 	{
-		
+
 	}
 	public virtual void SlowEntityBy(float _slowPercentage, float slowDuration)
 	{
@@ -107,7 +106,7 @@ public class Entity : MonoBehaviour
 		facingRight = !facingRight;
 		transform.Rotate(0, 180, 0);
 
-		if(onFlipped != null)
+		if (onFlipped != null)
 			onFlipped();
 	}
 	public virtual void FlipController(float _x)

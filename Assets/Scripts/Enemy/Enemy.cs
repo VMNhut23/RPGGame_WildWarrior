@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -17,7 +16,7 @@ public class Enemy : Entity
 	public Vector2 stunDirection;
 	protected bool canBeStunned;
 	[SerializeField] protected GameObject counterImage;
-	
+
 	[Header("Move info")]
 	public float moveSpeed;
 	public float idleTimer;
@@ -31,7 +30,7 @@ public class Enemy : Entity
 	public float minAttackCooldown;
 	public float maxAttackCooldown;
 	[HideInInspector] public float lastTimeAttacked;
-    public EnemyStateMachine stateMachine { get; private set; }
+	public EnemyStateMachine stateMachine { get; private set; }
 	public EntityFX entityFX { get; private set; }
 	public string lastAnimBoolName { get; private set; }
 	protected override void Awake()
@@ -110,9 +109,20 @@ public class Enemy : Entity
 	public virtual void AnimationFinishTrigger() => stateMachine.currentState.AnimationFinishTrigger();
 	public virtual void AnimationSpecialAttackTrigger()
 	{
-		
+
 	}
-	public virtual RaycastHit2D IsPlayerDetected() => Physics2D.Raycast(wallCheck.position, Vector2.right * facingDir, 50, whatIsPlayer);
+	public virtual RaycastHit2D IsPlayerDetected()
+	{
+		RaycastHit2D playerDetected = Physics2D.Raycast(wallCheck.position, Vector2.right * facingDir, 50, whatIsPlayer);
+		RaycastHit2D wallDetected = Physics2D.Raycast(wallCheck.position, Vector2.right * facingDir, 50, whatIsGround);
+
+		if (wallDetected)
+		{
+			if (wallDetected.distance < playerDetected.distance)
+				return default(RaycastHit2D);
+		}
+		return playerDetected;
+	}
 	protected override void OnDrawGizmos()
 	{
 		base.OnDrawGizmos();

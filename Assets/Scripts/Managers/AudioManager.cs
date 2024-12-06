@@ -50,6 +50,7 @@ public class AudioManager : MonoBehaviour
 		}
 	}
 	public void StopSFX(int _sfxIndex) => sfx[_sfxIndex].Stop();
+	public void StopBGM(int _bgmIndex) => bgm[_bgmIndex].Stop();
 
 	public void PlayRandomBGM()
 	{

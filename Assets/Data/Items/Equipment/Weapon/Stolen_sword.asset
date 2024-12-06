@@ -15,7 +15,8 @@ MonoBehaviour:
   itemType: 1
   itemName: Stolen_sword
   itemIcon: {fileID: 1526008332, guid: a9ca9a41598dd2e44b125928045c518f, type: 3}
-  dropChange: 68.3
+  itemId: 43733f2f1242ab248a9a8a79d973e0cb
+  dropChange: 52.1
   equipmentType: 0
   itemCooldown: 0
   itemEffects: []

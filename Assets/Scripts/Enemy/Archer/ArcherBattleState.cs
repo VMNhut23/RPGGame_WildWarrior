@@ -36,7 +36,7 @@ public class ArcherBattleState : EnemyState
 		{
 			stateTimer = enemy.battleTime;
 
-			if(enemy.IsPlayerDetected().distance < enemy.safeDistance)
+			if (enemy.IsPlayerDetected().distance < enemy.safeDistance)
 			{
 				if (CanJump())
 					stateMachine.ChangeState(enemy.jumpState);
@@ -54,15 +54,18 @@ public class ArcherBattleState : EnemyState
 				stateMachine.ChangeState(enemy.idleState);
 		}
 
+		BattleStateFlipController();
 
-		//Bc archer remote attack so we don't apply this code
-		/*if (player.position.x > enemy.transform.position.x)
-			moveDir = 1;
-		else if (player.position.x < enemy.transform.position.x)
-			moveDir = -1;
-
-		enemy.SetVelocity(enemy.moveSpeed * moveDir, enemy.rb.velocity.y);*/
 	}
+
+	private void BattleStateFlipController()
+	{
+		if (player.position.x > enemy.transform.position.x && enemy.facingDir == -1)
+			enemy.Flip();
+		else if (player.position.x < enemy.transform.position.x && enemy.facingDir == 1)
+			enemy.Flip();
+	}
+
 	private bool CanAttack()
 	{
 		if (Time.time >= enemy.lastTimeAttacked + enemy.attackCooldown)

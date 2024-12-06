@@ -37,7 +37,7 @@ public class UI : MonoBehaviour, ISaveManager
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.C))
+        /*if (Input.GetKeyDown(KeyCode.C))
             SwitchWithKeyTo(characterUI);
 
         if (Input.GetKeyDown(KeyCode.X))
@@ -47,6 +47,8 @@ public class UI : MonoBehaviour, ISaveManager
             SwitchWithKeyTo(craftUI);
 
         if (Input.GetKeyDown(KeyCode.B))
+            SwitchWithKeyTo(optionUI);*/
+        if (Input.GetKeyDown(KeyCode.Escape))
             SwitchWithKeyTo(optionUI);
     }
     public void SwitchTo(GameObject _menu)
@@ -94,7 +96,6 @@ public class UI : MonoBehaviour, ISaveManager
 	}
     public void SwitchOnEndScreen()
 	{
-        SwitchTo(null);
         fadeScreen.FadeOut();
         StartCoroutine(EndScreenCoroutine());
 	}
