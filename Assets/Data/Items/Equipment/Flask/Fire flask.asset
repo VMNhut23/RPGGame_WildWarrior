@@ -15,7 +15,8 @@ MonoBehaviour:
   itemType: 1
   itemName: Fire flask
   itemIcon: {fileID: -1095196993, guid: a9ca9a41598dd2e44b125928045c518f, type: 3}
-  dropChange: 0
+  itemId: 8474d0a08ae8aa547b4faed97720c347
+  dropChange: 41.2
   equipmentType: 3
   itemCooldown: 0
   itemEffects:
@@ -34,4 +35,8 @@ MonoBehaviour:
   fireDamage: 5
   iceDamage: 0
   lightingDamage: 0
-  craftingMaterials: []
+  craftingMaterials:
+  - itemData: {fileID: 0}
+    stackSize: 0
+  - itemData: {fileID: 0}
+    stackSize: 0

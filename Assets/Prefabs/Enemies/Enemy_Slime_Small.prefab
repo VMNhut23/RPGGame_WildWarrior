@@ -108,7 +108,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1339876165
-  m_SortingLayer: 5
+  m_SortingLayer: 7
   m_SortingOrder: -10
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 0.6862745}
@@ -422,7 +422,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1339876165
-  m_SortingLayer: 5
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: -1649149324, guid: 5b37f7e31a19796489c254db0005907c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -575,7 +575,7 @@ MonoBehaviour:
     baseValue: 0
     modifiers: 
   damage:
-    baseValue: 10
+    baseValue: 50
     modifiers: 
   critChance:
     baseValue: 0
@@ -657,8 +657,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0de18edc501eeb04ea62afe76ec66b15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  possibleItemDrop: 0
-  possibleDrop: []
+  possibleItemDrop: 2
+  possibleDrop:
+  - {fileID: 11400000, guid: 176586c869d8c004b87e8b6bd23773f9, type: 2}
+  - {fileID: 11400000, guid: 9843b1ff827e421409bfa89bd56ca818, type: 2}
   dropPrefabs: {fileID: 1458573521424149443, guid: 3ce24e5f249b39449b9ec66da63f70c1, type: 3}
 --- !u!114 &4685315668652456526
 MonoBehaviour:
@@ -689,7 +691,7 @@ MonoBehaviour:
   stunDuration: 1
   stunDirection: {x: 10, y: 12}
   counterImage: {fileID: 2425339470840640223}
-  moveSpeed: 2.5
+  moveSpeed: 3
   idleTimer: 2
   battleTime: 5
   agroDistance: 2

@@ -1,31 +1,33 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+
 
 public class DeathBringerDeadState : EnemyState
 {
-	private Enemy_DeathBringer enemy;
-	public DeathBringerDeadState(Enemy _enemyBase, EnemyStateMachine _stateMachine, string _animBoolName, Enemy_DeathBringer _enemy) : base(_enemyBase, _stateMachine, _animBoolName)
-	{
-		this.enemy = _enemy;
-	}
+    private Enemy_DeathBringer enemy;
 
-	public override void Enter()
-	{
-		base.Enter();
+    public DeathBringerDeadState(Enemy _enemyBase, EnemyStateMachine _stateMachine, string _animBoolName, Enemy_DeathBringer enemy) : base(_enemyBase, _stateMachine, _animBoolName)
+    {
+        this.enemy = enemy;
+    }
 
-		enemy.animator.SetBool(enemy.lastAnimBoolName, true);
-		enemy.animator.speed = 0;
-		enemy.cd.enabled = false;
+    public override void Enter()
+    {
+        base.Enter();
 
-		stateTimer = .1f;
-	}
-	public override void Update()
-	{
-		base.Update();
+        enemy.animator.SetBool(enemy.lastAnimBoolName, true);
+        enemy.animator.speed = 0;
+        enemy.cd.enabled = false;
 
-		if (stateTimer > 0)
-			enemy.rb.velocity = new Vector2(0, 10);
-	}
+        stateTimer = .15f;
+        GameObject.Find("Canvas").GetComponent<UI>().SwitchOnWinScreen();
+    }
+    public override void Update()
+    {
+        base.Update();
 
+        if (stateTimer > 0)
+            enemy.rb.velocity = new Vector2(0, 10);
+
+        AudioManager.instance.StopBGM(1);
+    }
 }

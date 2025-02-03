@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UI : MonoBehaviour, ISaveManager
 {
     [Header("End screen")]
     [SerializeField] private GameObject endText;
+    [SerializeField] private GameObject winText;
     [SerializeField] private GameObject restartButton;
+    [SerializeField] private GameObject menuGame;
     public UI_FadeScreen fadeScreen;
     [Space]
 
@@ -37,7 +40,9 @@ public class UI : MonoBehaviour, ISaveManager
     }
     void Update()
     {
-        /*if (Input.GetKeyDown(KeyCode.C))
+        /*if (Input.GetKeyDown
+         * 
+         * (KeyCode.C))
             SwitchWithKeyTo(characterUI);
 
         if (Input.GetKeyDown(KeyCode.X))
@@ -99,14 +104,29 @@ public class UI : MonoBehaviour, ISaveManager
         fadeScreen.FadeOut();
         StartCoroutine(EndScreenCoroutine());
 	}
+    public void SwitchOnWinScreen()
+	{
+        fadeScreen.FadeOut();
+        StartCoroutine(WinScreenCoroutine());
+
+	}
     IEnumerator EndScreenCoroutine()
 	{
         yield return new WaitForSeconds(1);
         endText.SetActive(true);
         yield return new WaitForSeconds(1.5f);
         restartButton.SetActive(true);
+        menuGame.SetActive(true);
 	}
+    IEnumerator WinScreenCoroutine()
+    {
+        yield return new WaitForSeconds(1);
+        winText.SetActive(true);
+        yield return new WaitForSeconds(1.5f);
+        menuGame.SetActive(true);
+    }
     public void RestartGameButton() => GameManager.instance.RestartScene();
+    public void MenuGame() => GameManager.instance.MenuGame();
 
 	public void LoadData(GameData _data)
 	{

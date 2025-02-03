@@ -16,6 +16,7 @@ public class Player : Entity
     private float defaultJumpForce;
     private float defaultDashSpeed;
 
+
     [Header("Dash info")]
     public float dashSpeed;
     public float dashDuration;

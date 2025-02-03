@@ -32,6 +32,12 @@ public class GameManager : MonoBehaviour, ISaveManager
 		Scene scene = SceneManager.GetActiveScene();
 		SceneManager.LoadScene(scene.name);
 	}
+	public void MenuGame()
+	{
+		SaveMananger.instance.NewGame();
+		Scene scene = SceneManager.GetActiveScene();
+		SceneManager.LoadScene("MainMenu");
+	}
 
 	public void LoadData(GameData _data) => StartCoroutine(LoadWithDelay(_data));
 

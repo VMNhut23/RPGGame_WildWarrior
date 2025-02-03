@@ -4781,7 +4781,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1339876165
-  m_SortingLayer: 5
+  m_SortingLayer: 7
   m_SortingOrder: 11
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -4888,7 +4888,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1339876165
-  m_SortingLayer: 5
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: 2110614751, guid: 29947697f4f443c45ba4dcee98b16271, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -4913,12 +4913,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 040efa594ccab0d4980bf7cd6f223248, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 25
+  damage: 40
   targetLayerName: Player
-  xVelocity: 1.5
+  xVelocity: 3
   rb: {fileID: 4479617092396896952}
   canMove: 1
-  flipped: 1
+  flipped: 0
 --- !u!70 &4479617092396896953
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

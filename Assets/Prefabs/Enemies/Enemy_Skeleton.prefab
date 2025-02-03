@@ -285,7 +285,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.7
+      scalar: 1
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -4780,7 +4780,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1033547719
-  m_SortingLayer: 7
+  m_SortingLayer: 9
   m_SortingOrder: 0
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -5097,7 +5097,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.7
+      scalar: 1
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -9592,7 +9592,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1033547719
-  m_SortingLayer: 7
+  m_SortingLayer: 9
   m_SortingOrder: 0
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -9697,7 +9697,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1339876165
-  m_SortingLayer: 5
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: -862072993, guid: cc71415bc56e07742a0bede3d4be6d2f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -9902,7 +9902,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2440781272605777242
 Transform:
   m_ObjectHideFlags: 0
@@ -9911,7 +9911,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2440781272605777240}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.22, y: 0.22, z: 0}
+  m_LocalPosition: {x: 0.234, y: 0.376, z: 0}
   m_LocalScale: {x: 0.7472, y: 0.7702, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9956,11 +9956,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: -10
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.9622642, g: 0.003631114, b: 0.003631114, a: 1}
+  m_SortingLayerID: -1339876165
+  m_SortingLayer: 7
+  m_SortingOrder: 0
+  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Color: {r: 0.9622642, g: 0.003631114, b: 0.003631114, a: 0.2901961}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -10075,7 +10075,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2440781272767700211}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.5703697, y: -1.5737882, z: 8.7963085}
   m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
   m_ConstrainProportionsScale: 0
@@ -10124,6 +10124,7 @@ MonoBehaviour:
   moveSpeed: 1.5
   idleTimer: 2
   battleTime: 1
+  agroDistance: 2
   attackDistance: 2
   attackCooldown: 0.4
   minAttackCooldown: 0.35
@@ -10178,6 +10179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 555b551db85ba10429a97bc856f80084, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  popUpTextPrefabs: {fileID: 6554443141128569439, guid: 9d1b549d6e6c92241985c1188484fa40, type: 3}
   flashDuration: 0.15
   hitMat: {fileID: 2100000, guid: 77f220fe8de3d2746a68c420b1d82b09, type: 2}
   chillColor:
@@ -10192,6 +10194,8 @@ MonoBehaviour:
   igniteFx: {fileID: 2440781273593074982}
   chillFx: {fileID: 2440781271785667161}
   shockFx: {fileID: 2440781271707787142}
+  hixFx: {fileID: 585531257424343398, guid: 0a94742bcba62264e86ba0ad9c364518, type: 3}
+  criticalHitFx: {fileID: 5258424456164366761, guid: c640b205908229c4ca8df71ae61ff198, type: 3}
 --- !u!114 &2440781272767700220
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10217,19 +10221,19 @@ MonoBehaviour:
     baseValue: 0
     modifiers: 
   damage:
-    baseValue: 13
+    baseValue: 20
     modifiers: 
   critChance:
-    baseValue: 99
+    baseValue: 20
     modifiers: 
   critPower:
     baseValue: 150
     modifiers: 
   maxHealth:
-    baseValue: 500
+    baseValue: 100
     modifiers: 
   armour:
-    baseValue: 0
+    baseValue: 10
     modifiers: 
   evasion:
     baseValue: 0
@@ -10254,7 +10258,7 @@ MonoBehaviour:
   currentHealth: 0
   isDead: 0
   soulsDropAmount:
-    baseValue: 0
+    baseValue: 120
     modifiers: 
   level: 1
   percentageModifiers: 0.4
@@ -10278,7 +10282,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 43733f2f1242ab248a9a8a79d973e0cb, type: 2}
   - {fileID: 11400000, guid: 6e898ee45fc16bc42ae8c5623d2b10a2, type: 2}
   dropPrefabs: {fileID: 1458573521424149443, guid: 3ce24e5f249b39449b9ec66da63f70c1, type: 3}
-  item: {fileID: 11400000, guid: 9843b1ff827e421409bfa89bd56ca818, type: 2}
 --- !u!1 &2440781273231983112
 GameObject:
   m_ObjectHideFlags: 0
@@ -10458,7 +10461,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: -2118876057
   m_SortingOrder: 19
   m_TargetDisplay: 0
@@ -10799,7 +10802,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.7
+      scalar: 1
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -15294,7 +15297,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1033547719
-  m_SortingLayer: 7
+  m_SortingLayer: 9
   m_SortingOrder: 0
   m_RenderMode: 0
   m_MeshDistribution: 0

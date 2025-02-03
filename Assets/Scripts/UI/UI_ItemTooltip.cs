@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class UI_ItemTooltip : MonoBehaviour
+public class UI_ItemTooltip : UI_Tooltip
 {
     [SerializeField] private TextMeshProUGUI itemNameText;
     [SerializeField] private TextMeshProUGUI itemTypeText;
@@ -25,6 +25,9 @@ public class UI_ItemTooltip : MonoBehaviour
         else
             itemNameText.fontSize = defaultFontSize;
 
+
+        AdjustFontSize(itemNameText);
+        AdjustPosition();
         gameObject.SetActive(true);
 	}
     public void HideTooltip()

@@ -1,36 +1,38 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
 
 public class ShadyStunnedState : EnemyState
 {
-	private Enemy_Shady enemy;
-	public ShadyStunnedState(Enemy _enemyBase, EnemyStateMachine _stateMachine, string _animBoolName, Enemy_Shady _enemy) : base(_enemyBase, _stateMachine, _animBoolName)
-	{
-		enemy = _enemy;
-	}
-	public override void Enter()
-	{
-		base.Enter();
+    private Enemy_Shady enemy;
+    public ShadyStunnedState(Enemy _enemyBase, EnemyStateMachine _stateMachine, string _animBoolName, Enemy_Shady _enemy) : base(_enemyBase, _stateMachine, _animBoolName)
+    {
+        this.enemy = _enemy;
+    }
 
-		enemy.entityFX.InvokeRepeating("RedColorBlink", 0, .1f);
 
-		stateTimer = enemy.stunDuration;
+    public override void Enter()
+    {
+        base.Enter();
 
-		enemy.rb.velocity = new Vector2(-enemy.facingDir * enemy.stunDirection.x, enemy.stunDirection.y);
-	}
+        enemy.entityFX.InvokeRepeating("RedColorBlink", 0, .1f);
 
-	public override void Exit()
-	{
-		base.Exit();
-		enemy.entityFX.Invoke("CancelColorChange", 0);
-	}
+        stateTimer = enemy.stunDuration;
 
-	public override void Update()
-	{
-		base.Update();
-		if (stateTimer < 0)
-			stateMachine.ChangeState(enemy.idleState);
-	}
+        enemy.rb.velocity = new Vector2(-enemy.facingDir * enemy.stunDirection.x, enemy.stunDirection.y);
+    }
 
+    public override void Exit()
+    {
+        base.Exit();
+
+        enemy.entityFX.Invoke("CancelColorChange", 0);
+    }
+
+    public override void Update()
+    {
+        base.Update();
+
+        if (stateTimer < 0)
+            stateMachine.ChangeState(enemy.idleState);
+    }
 }

@@ -10,6 +10,7 @@ public class MapTrigger : MonoBehaviour
 		if (collision.CompareTag("Player"))
 		{
 			map.SetActive(true);
+			AudioManager.instance.PlayBGM(1);
 			gameObject.SetActive(false);
 		}
 	}

@@ -27,7 +27,6 @@ public class PlayerState
     public virtual void Update()
 	{
         stateTimer -= Time.deltaTime;
-
         xInput = Input.GetAxisRaw("Horizontal");
         yInput = Input.GetAxisRaw("Vertical");
         player.animator.SetFloat("yVelocity", player.rb.velocity.y);

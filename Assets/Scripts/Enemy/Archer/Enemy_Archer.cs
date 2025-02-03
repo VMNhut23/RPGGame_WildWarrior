@@ -37,7 +37,7 @@ public class Enemy_Archer : Enemy
 		battleState = new ArcherBattleState(this, stateMachine, "Idle", this);
 		attackState = new ArcherAttackState(this, stateMachine, "Attack", this);
 		stunnedState = new ArcherStunnedState(this, stateMachine, "Stunned", this);
-		deadState = new ArcherDeadState(this, stateMachine, "Idle", this);
+		deadState = new ArcherDeadState(this, stateMachine, "Move", this);
 		jumpState = new ArcherJumpState(this, stateMachine, "Jump", this);
 	}
 	protected override void Start()
@@ -66,7 +66,7 @@ public class Enemy_Archer : Enemy
 	{
 		GameObject newArrow = Instantiate(arrowPrefab, attackCheck.position, Quaternion.identity);
 
-		newArrow.GetComponent<Arrow_Controller>().SetupArrow(arrowSpeed, stats);
+		newArrow.GetComponent<Arrow_Controller>().SetupArrow(arrowSpeed * facingDir, stats);
 	}
 	public bool GroundBehindCheck() => Physics2D.BoxCast(groundBehindCheck.position, groundBehindCheckSize, 0, Vector2.zero, 0, whatIsGround);
 	public bool GroundWallCheck() => Physics2D.Raycast(wallCheck.position, Vector2.right * -facingDir, wallCheckDistance + 2, whatIsGround);
